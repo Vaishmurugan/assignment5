@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Main {
+    static int countOccurrences(String str, char ch, int index) {
+        if (index >= str.length())
+            return 0; 
+        if (str.charAt(index) == ch)
+            return 1 + countOccurrences(str, ch, index + 1);
+        else
+            return countOccurrences(str, ch, index + 1); 
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        char ch = scanner.next().charAt(0);
+        int count = countOccurrences(str, ch, 0);
+        System.out.println(count);
+    }
+}
